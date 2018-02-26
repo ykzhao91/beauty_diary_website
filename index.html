@@ -1,0 +1,116 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="js/jquery.noConflict.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/jquery.masonry.min.js"></script>
+<script src="js/jsibox_basic.js"></script>
+<script type="text/javascript" src="js/productslikepins.js"></script>
+<style>
+        h1
+        {
+        text-align: center;
+        font-size: 40px;
+        text-transform: uppercase;
+        font-family: "ars-maquette-web-1","ars-maquette-web-2","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        letter-spacing: 2px;
+        }
+        #myButton
+        {
+            border: 2px solid;
+            border-radius: 6px;
+            background-color:#f7f7f7;
+            color: #545453;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        #myVideo
+        {
+            border: 2px solid;
+            border-radius: 6px;
+            background-color:#f7f7f7;
+            color: #545453;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        #myItem
+        {
+            border: 2px solid;
+            border-radius: 6px;
+            background-color:#f7f7f7;
+            color: #545453;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        
+        #myFavorite
+        {
+            border: 2px solid;
+            border-radius: 6px;
+            background-color:#f7f7f7;
+            color: #545453;
+            font-weight: bold;
+            font-size: 1em;
+        }
+             
+        .vLine
+        {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            padding-right: 1em;
+            display: inline;
+        }
+        
+        .navigation
+        {
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            min-height: 40px;
+            clear: both;
+            margin-bottom: 26px;
+            width: 60%;
+        }
+</style>
+</head>
+<body>
+<h1>My beauty diary</h1>
+<div class = "navigation">
+<div class = "vLine"><button id = "myButton">Editorial</button></div>
+<div class = "vLine"><button id = "myVideo">Tutorial</button></div>
+<div class = "vLine"><button id = "myItem">Products</button></div>
+<div class = "vLine"><button id = "myFavorite">My Pinboard!</button></div>
+</div>
+<div id="container" style="display:block"></div>
+<div id = "myFavoriteDiv" style="display:none"></div>
+<div id="loader"><div id="loaderCircle"></div></div>
+<div id="scroller" class="b-top" style="display: none;"><span class="b-top-but">to top</span></div>
+    
+    
+<script type="text/javascript"> 
+$("#myButton").bind("click", buttonEventHandler);
+$("#myFavorite").bind("click", favoriteEventHandler);
+    
+function buttonEventHandler(evt)
+    {
+        p = evt;
+        console.log("Hello! timestamp: " + evt.timeStamp);
+        $("#container").css("display","block");
+        $("#myFavoriteDiv").css("display","none");
+    }
+    
+    
+function favoriteEventHandler(evt)
+    {
+        get_favorite_json();
+        //generate_htmlpage();
+        p = evt;
+        console.log("Hello! timestamp: " + evt.timeStamp);
+        $("#container").css("display","none");
+        $("#myFavoriteDiv").css("display","block");
+    }
+</script> 
+</body>
+</html>
